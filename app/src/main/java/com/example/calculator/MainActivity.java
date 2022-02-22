@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
     private void initClickListener() {
 
         Button button0 = findViewById(R.id.button_0);
@@ -89,7 +90,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         screen.setText(saveScreen);
     }
 
-
+    private void deleteAll(){
+        saveScreen = "";
+        screen.setText(saveScreen);
+    }
+    private void deleteNumber(){
+        saveScreen = saveScreen;
+        screen.setText(screen.length()-1);
+    }
     @Override
     public void onClick(View view) {
 
@@ -144,12 +152,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button_clear:
-                setText("");
+                deleteAll();
                 break;
             case R.id.button_equals:
                 setText("=");
                 break;
-
+            case R.id.button_delete:
+                deleteNumber();
+                break;
         }
 
     }
